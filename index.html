@@ -3,63 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Design Using HTML and CSS</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Icecream Store - Responsive Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section id="container">
-        <div class="navbar">
-            <h1>Icecream <span> Store</span></h1>
-            <nav>
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <nav class="mobile-nav">
                 <ul>
                     <li><a class="active" href="#">HOME</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">FLAVORS</a></li>
+                    <li><a href="#">GALLERY</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="#">CONTACT</a></li>
                 </ul>
             </nav>
-            <button type="button" class="btn"></button>
-        </div>
-        <div class="content">
-            <h2> <span>WELCOME</span> TO <span>OUR</span> <br> WEBSITE</h2>
-            <p> Thank you for stopping by our store and treating yourself to your favorite ice cream! We’re thrilled you chose us to satisfy your sweet cravings. It’s always a pleasure serving you, and we hope every scoop brought a smile to your face.
-            </p>
-            <button type="button" class="common-btn">Enroll</button>
-            <button type="button" class="common-btn">Learn More</button>
-        </div>
-    </section>
-    <div class="left-links-box">
-        <div class="media-links">
-            <img src="images/fb.png" >
-            <img src="images/insta.PNG" >
-            <img src="images/youtube.PNG" >
+            
+            <div class="mobile-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="mobile-login">
+                <h3>Login Here</h3>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button type="button">Login</button>
+                <button type="button" class="mobile-order-btn">
+                    <i class="fas fa-ice-cream"></i>
+                    Order Now
+                </button>
+            </div>
         </div>
     </div>
+    
+    <div class="floating-order-btn">
+        <button class="order-now-btn">
+            <i class="fas fa-ice-cream"></i>
+            <span>Order Now</span>
+        </button>
+    </div>
+    
+    <section id="container">
+        <div class="navbar">
+            <h1>Icecream <span>Store</span></h1>
+            <nav class="nav-links" id="navLinks">
+                <ul>
+                    <li><a class="active" href="#">HOME</a></li>
+                    <li><a href="#">FLAVORS</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button type="button" class="btn desktop-order-btn">ORDER NOW</button>
+        </div>
+        
+        <div class="content">
+            <h2><span>WELCOME</span> TO <span>OUR</span> <br> ICE CREAM PARLOR</h2>
+            <p>Thank you for stopping by our store and treating yourself to your favorite ice cream! We're thrilled you chose us to satisfy your sweet cravings.</p>
+            
+            <div class="button-group">
+                <button type="button" class="common-btn menu-btn">
+                    <i class="fas fa-utensils"></i>
+                    <span>Our Menu</span>
+                </button>
+                <button type="button" class="common-btn learn-btn">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Learn More</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <div class="left-links-box">
+        <div class="media-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    
     <div id="loginBox">
         <h3>Login Here</h3>
         <form>
-            <label> Username</label><br>
-            <input type="text" name="" id="" placeholder="Enter Username"><br>
-            <label> Password</label><br>
-            <input type="password" name="" id="" placeholder="EnterPassword"><br>
-            <input type="button" name="" id="" value="Login">
+            <label>Username</label>
+            <input type="text" placeholder="Enter Username">
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password">
+            <input type="button" value="Login">
         </form>
-        <a href="#">Don't have an account?</a><br>
-        <a href="#">Lost your password</a>
+        <div class="login-links">
+            <a href="#">Don't have an account?</a>
+            <a href="#">Forgot password?</a>
+        </div>
     </div>
+    
     <button type="button" id="menuBtn">Login</button>
+    
     <script>
-        var menuBtn =document.getElementById("menuBtn")
-        var loginBox =document.getElementById("loginBox")
-
-        loginBox.style.right="-320px";
-        menuBtn.onclick = function(){
-            if( loginBox.style.right== "-320px"){
-            loginBox.style.right="0px";
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+        });
+        
+        const menuBtn = document.getElementById("menuBtn");
+        const loginBox = document.getElementById("loginBox");
+        
+        loginBox.style.right = "-320px";
+        menuBtn.onclick = function() {
+            if(loginBox.style.right == "-320px") {
+                loginBox.style.right = "0";
+            } else {
+                loginBox.style.right = "-320px";
             }
-            else( loginBox.style.right="-320px")
         }
+        
+        const floatingBtn = document.querySelector('.floating-order-btn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                floatingBtn.classList.add('show');
+            } else {
+                floatingBtn.classList.remove('show');
+            }
+        });
+        
+        function checkScreenSize() {
+    if (window.innerWidth <= 900) {  
+        menuBtn.style.display = 'none';
+    } else {
+        menuBtn.style.display = 'block';
+    }
+}
+        
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
     </script>
 </body>
 </html>
